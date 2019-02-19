@@ -1,0 +1,19 @@
+<h2> All Tasks:</h2>
+
+<p>
+  <%= link_to "Add a new Task", new_task_path %>
+</p>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <%= link_to task.title, task_path(task) %>
+    <% if task.completed == true %>
+    <span> 🔵 </span>
+    <% else %>
+    <span> 🔴 </span>
+    <% end %>
+    <%= link_to '🔞', destroy_task_path(task), method: :delete %>
+  </li>
+  <% end %>
+</ul>
